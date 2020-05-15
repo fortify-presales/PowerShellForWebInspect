@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/egkljq9ok9xhvnhh?svg=true)](https://ci.appveyor.com/project/akevinlee/powershellforfod)
+[![Build status](https://ci.appveyor.com/api/projects/status/vxcg4duynrc7u7bc?svg=true)](https://ci.appveyor.com/project/akevinlee/powershellforwebinspect)
 
 # Power Shell For WebInspect Module
 
