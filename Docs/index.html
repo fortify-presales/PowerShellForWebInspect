@@ -1,0 +1,282 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a href="https://ci.appveyor.com/project/akevinlee/powershellforfod" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/egkljq9ok9xhvnhh?svg=true" alt="Build status"></a></p>
+<h1 id="power-shell-for-webinspect-module">Power Shell For WebInspect Module</h1>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#current-api-support">Current API Support</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#developing-and-contributing">Developing and Contributing</a></li>
+<li><a href="#licensing">Licensing</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>This is a <a href="https://microsoft.com/powershell" target="_blank">PowerShell</a> <a href="https://technet.microsoft.com/en-us/library/dd901839.aspx" target="_blank">module</a>
+that provides command-line interaction and automation for the <a href="http://localhost:8083/webinspect/swagger/ui/index" target="_blank">WebInspect API</a>.</p>
+<h2 id="use-cases">Use Cases</h2>
+<p>Although the module can be used generically, some use cases where it can be applied include:</p>
+<ul>
+<li>Automating scans and reports from a PowerShell command line and scripts.</li>
+<li>Running Dynamic Scans from third party build tools where a plugin is not currently available.  </li>
+<li>Programatically creating dashboards from WebInspect data together with data from other sources.  </li>
+</ul>
+<hr>
+<h2 id="current-api-support">Current API Support</h2>
+<p>At present, this module can:</p>
+<ul>
+<li>Authenticate against the WebInspect API using (none, Basic and Windows authentication)</li>
+<li>Execute a generic WebInspect API REST command with authentication</li>
+<li>Query, run, start, stop and remove Scans</li>
+</ul>
+<p>Development is ongoing, with the goal to add broad support for the entire API set.</p>
+<p>Review example <a href="USAGE.md">usage</a> to see how the module can be used to accomplish some example tasks.</p>
+<hr>
+<h2 id="installation">Installation</h2>
+<p>You can get the latest release of the PowerShellForWebInspect from the <a href="https://www.powershellgallery.com/packages/PowerShellForWebInspect" target="_blank">PowerShell Gallery</a></p>
+<pre><code class="lang-PowerShell">Install-Module -Name PowerShellForWebInspect
+</code></pre>
+<hr>
+<h2 id="configuration">Configuration</h2>
+<p>To access the <a href="https://www.microfocus.com/en-us/products/webinspect-dynamic-analysis-dast/" target="_blank">WebInspect</a> API you will need to 
+have installed WebInspect as per the <a href="https://www.microfocus.com/documentation/fortify-webinspect/" target="_blank">documentation</a> and 
+started the Windows <strong>WebInspect API Service</strong> either automatically or using the <strong>Micro Focus Fortify Monitor Tool</strong>. 
+Using the Monitor tool you can configure the Authentication method to use:</p>
+<p><img src="Media/fortify-monitor.png" alt="Fortify Monitor"></p>
+<p>Assuming you have configured <strong>Basic</strong> Authentication, then you can configure this module using the following:</p>
+<pre><code class="lang-PowerShell"><span class="hljs-variable">$Credential</span> = <span class="hljs-built_in">Get-Credential</span>
+Set-WIConfig -ApiUri http://localhost:<span class="hljs-number">8083</span>/webinspect -AuthMethod Basic -Credential <span class="hljs-variable">$Credential</span>
+</code></pre>
+<p>You will requested for your authentication details after the first command which will then be stored on the filesystem
+for all future requests.
+For more information on how to authenticate please refer to <a href="USAGE.md">USAGE</a>.</p>
+<h2 id="example">Example</h2>
+<p>Example command:</p>
+<pre><code class="lang-powershell">Get-WIScans -Status <span class="hljs-string">&quot;complete&quot;</span> -Name <span class="hljs-string">&apos;test&apos;</span> | Out-GridView
+</code></pre>
+<p>For more example commands, please refer to <a href="USAGE.md">USAGE</a>.</p>
+<hr>
+<h2 id="developing-and-contributing">Developing and Contributing</h2>
+<p>Please see the <a href="CONTRIBUTING.md">Contribution Guide</a> for information on how to develop and contribute.</p>
+<p>If you have any problems, please consult <a href="https://github.com/fortify-community-plugins/PowerShellForWebInspect/issues" target="_blank">GitHub Issues</a>
+to see if has already been discussed.</p>
+<hr>
+<h2 id="licensing">Licensing</h2>
+<p>PowerShellForWebInspect is licensed under the <a href="LICENSE">GNU General Public license</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2020-05-15T14:23:24.745Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T14:28:20.527Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
