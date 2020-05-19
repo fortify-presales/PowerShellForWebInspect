@@ -143,7 +143,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><a href="https://ci.appveyor.com/project/akevinlee/powershellforfod" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/egkljq9ok9xhvnhh?svg=true" alt="Build status"></a></p>
+                                <p><a href="https://ci.appveyor.com/project/akevinlee/powershellforwebinspect" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/vxcg4duynrc7u7bc?svg=true" alt="Build status"></a></p>
 <h1 id="power-shell-for-webinspect-module">Power Shell For WebInspect Module</h1>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
@@ -192,9 +192,8 @@ Using the Monitor tool you can configure the Authentication method to use:</p>
 <pre><code class="lang-PowerShell"><span class="hljs-variable">$Credential</span> = <span class="hljs-built_in">Get-Credential</span>
 Set-WIConfig -ApiUri http://localhost:<span class="hljs-number">8083</span>/webinspect -AuthMethod Basic -Credential <span class="hljs-variable">$Credential</span>
 </code></pre>
-<p>You will requested for your authentication details after the first command which will then be stored on the filesystem
-for all future requests.
-For more information on how to authenticate please refer to <a href="USAGE.md">USAGE</a>.</p>
+<p>You will be requested for your authentication details after the first command which will then be stored on the filesystem
+for all future requests. For more information on how to authenticate please refer to <a href="USAGE.md">USAGE</a>.</p>
 <h2 id="example">Example</h2>
 <p>Example command:</p>
 <pre><code class="lang-powershell">Get-WIScans -Status <span class="hljs-string">&quot;complete&quot;</span> -Name <span class="hljs-string">&apos;test&apos;</span> | Out-GridView
@@ -243,7 +242,7 @@ to see if has already been discussed.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2020-05-15T14:23:24.745Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T14:28:20.527Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2020-05-19T08:48:00.196Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-19T08:54:00.780Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
