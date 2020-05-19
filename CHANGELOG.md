@@ -8,12 +8,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
-## [1.0.0.1] - 2020-05-18
+## [1.0.0.1] - 2020-05-19
 
 ### Added
 
-- Initial version with API authentication and execution
-- Query, New, Start, Stop and Remove Scans
+- Initial version with configuration, API authentication and execution
+- Query, Create New, Start, Stop and Remove Scans
+- Query Policies and Policy Details
 
 ### Changed
 

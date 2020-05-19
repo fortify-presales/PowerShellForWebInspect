@@ -1,16 +1,24 @@
 function New-WIMacroGenDescriptorObject
 {
+    <#
+    .SYNOPSIS
+        Create a new MacroGenDescriptorObject.
+    .DESCRIPTION
+        Create a new PS4WI.MacroGenDescriptorObject for use in initiating a new scan.
+    .FUNCTIONALITY
+        WebInspect
+    #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable],[String])]
     param
     (
-        [Parameter]
+        [Parameter()]
         [string]$Username,
 
-        [Parameter]
+        [Parameter()]
         [string]$Password,
 
-        [Parameter]
+        [Parameter()]
         [string]$StartUrl
     )
     begin

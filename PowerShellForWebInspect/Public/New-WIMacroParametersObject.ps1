@@ -1,5 +1,19 @@
 function New-WIMacroParametersObject
 {
+    <#
+    .SYNOPSIS
+        Create a new MacroParametersObject.
+    .DESCRIPTION
+        Create a new PS4WI.MacroParametersObject for use in initiating a new scan.
+    .PARAMETER MacroName
+        The name of the macro.
+    .PARAMETER MacroParameters
+        The parameters and values that will be passed to the macro.
+    .EXAMPLE
+        New-WIMacroParametersObject -MacroName tcLogin -MacroParameters $macroParams
+    .FUNCTIONALITY
+        WebInspect
+    #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable],[String])]
     param

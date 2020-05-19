@@ -1,5 +1,18 @@
 function New-WIScanReuseOptionsObject
 {
+    <#
+    .SYNOPSIS
+        Create a new ScanReuseOptionsObject.
+    .DESCRIPTION
+        Create a new PS4WI.ScanReuseOptionsObject for use in initiating a new scan.
+    .PARAMETER ScanId
+        A GUID representing an existing scan ID. The scan referenced by the "ReuseScan" parameter is used as a
+        baseline.
+    .PARAMETER Mode
+        The "Mode" parameter determines the manner in which the baseline scan is reused.
+    .FUNCTIONALITY
+        WebInspect
+    #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable],[String])]
     param

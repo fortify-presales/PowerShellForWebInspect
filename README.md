@@ -67,9 +67,8 @@ $Credential = Get-Credential
 Set-WIConfig -ApiUri http://localhost:8083/webinspect -AuthMethod Basic -Credential $Credential
 ```
 
-You will requested for your authentication details after the first command which will then be stored on the filesystem
-for all future requests.
-For more information on how to authenticate please refer to [USAGE](USAGE.md).
+You will be requested for your authentication details after the first command which will then be stored on the filesystem
+for all future requests. For more information on how to authenticate please refer to [USAGE](USAGE.md).
 
 ## Example
 

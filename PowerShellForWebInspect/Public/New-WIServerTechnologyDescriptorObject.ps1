@@ -1,13 +1,25 @@
 function New-WIServerTechnologyDescriptorObject
 {
+    <#
+    .SYNOPSIS
+        Create a new ServerTechnologyDescriptor object.
+    .DESCRIPTION
+        Create a new PS4WI.ServerTechnologyDescriptor for use in initiating a new scan.
+    .PARAMETER Url
+        The Url of the server.
+    .PARAMETER ServerTypeIds
+        List of server type ids.
+    .FUNCTIONALITY
+        WebInspect
+    #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable],[String])]
     param
     (
-        [Parameter]
+        [Parameter()]
         [string]$Url,
 
-        [Parameter]
+        [Parameter()]
         [int[]]$ServerTypeIds
     )
     begin

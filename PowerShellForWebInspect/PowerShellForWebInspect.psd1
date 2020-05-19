@@ -72,7 +72,7 @@ PowerShellVersion = '5.1'
 FunctionsToExport = @(
     'Set-WIConfig', 'Get-WIConfig', 'Send-WIApi',
     'New-WIClientCertificateObject', 'New-WIMacroGenDescriptorObject', 'New-WIKnownTechnologyObject', 'New-WIProxyConfigurationDescriptionObject',
-    'New-WIRestEndPointDescriptorObject', 'New-WIReuseFalsePositivesObject', 'WIScanReuseOptionsObject', 'New-WIScanSettingsOverridesObject',
+    'New-WIRestEndPointDescriptorObject', 'New-WIReuseFalsePositivesObject', 'New-WIScanReuseOptionsObject', 'New-WIScanSettingsOverrideObject',
     'New-WIServerTechnologyDescriptorObject', 'New-WIStartScanDescriptorObject', 'New-WIUserAgentDescriptorObject', 'New-WIScanReuseOptionsObject',
     'New-WIWebFormValuesDescriptorObject', 'New-WIWebServiceScanDescriptorObject', 'New-WIMacroParameterObject', 'New-WIMacroParametersObject',
     'Get-WIScans', 'Get-WIScanStatus', 'New-WIScan', 'Stop-WIScan', 'Start-WIScan', 'Remove-WIScan',

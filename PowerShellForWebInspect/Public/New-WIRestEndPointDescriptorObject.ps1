@@ -1,19 +1,35 @@
 function New-WIRestEndPointDescriptorObject
 {
+    <#
+    .SYNOPSIS
+        Create a new RestEndPointDescriptorObject.
+    .DESCRIPTION
+        Create a new PS4WI.RestEndPointDescriptorObject for use in initiating a new scan.
+    .PARAMETER Method
+        The REST endpoint method.
+    .PARAMETER Rule
+        The REST endpoint rule.
+    .PARAMETER Type
+        The REST endpoint type.
+    .PARAMETER Payload
+        The REST endpoint payload.
+    .FUNCTIONALITY
+        WebInspect
+    #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable],[String])]
     param
     (
-        [Parameter]
+        [Parameter()]
         [string]$Method,
 
-        [Parameter]
+        [Parameter()]
         [string]$Rule,
 
-        [Parameter]
+        [Parameter()]
         [string]$Type,
 
-        [Parameter]
+        [Parameter()]
         [string]$Payload
     )
     begin

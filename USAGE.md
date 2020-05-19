@@ -28,10 +28,8 @@ $Credential = Get-Credential
 Set-WIConfig -ApiUri http://localhost:8083/webinspect -AuthMethod Basic -Credential $Credential
 ```
 
-You will requested for your authentication details after the first command which will then be stored on the filesystem
-for all future requests. 
-
-The configuration is encrypted and stored on disk for use in subsequent commands.
+You will be requested for your authentication details after the first command which will then be stored on the filesystem
+for all future requests. The configuration is encrypted and stored on disk for use in subsequent commands.
 
 To retrieve the current configuration execute the following:
 
@@ -47,8 +45,8 @@ There following configuration settings are available/visible:
 - `Credential` - A PowerShell Credential object
 - `ForceVerbose` - Force Verbose output for all commands and subcommands 
 
-Each of these options can be set via `Set-WIConfig`, for example `Set-WIConfig -ForceVerbose` to force
-verbose output in commands and sub-commands.
+Each of these options can be set via `Set-WIConfig`, for example `Set-WIConfig -ForceVerbose` to force verbose output 
+in commands and sub-commands.
 
 ----------
 
@@ -80,6 +78,16 @@ InstallationPolicy value by running the Set-PSRepository cmdlet. Are you sure yo
 ```
 
 Select `Y` to install the module this time or you can use `Set-PSRepository` cmdlet.
+
+### Copying Login and Web macros to Service User directory
+
+If you are running the WebInspect API as a service then by default it will look for macros in the directory:
+`C:\Windows\System32\config\systemprofile\AppData\Local\HP\HP WebInspect\Tools\Settings`. If you create the macros
+using your user account make sure you copy your macros here using a command similar to the following:
+
+```Powershell
+copy /Y C:\Users\YOUR_USERNAME\Documents\HP\Tools\swaLogin.webmacro "C:\Windows\System32\config\systemprofile\AppData\Local\HP\HP WebInspect\Tools\Settings"
+```
 
 ### Removing/creating the configuration file
 

@@ -1,17 +1,31 @@
 function New-WIWebFormValuesDescriptorObject
 {
+    <#
+    .SYNOPSIS
+        Create a new WebFormValuesDescriptorObject.
+    .DESCRIPTION
+        Create a new PS4WI.WebFormValuesDescriptorObject for use in initiating a new scan.
+    .PARAMETER Enable
+
+    .PARAMETER Name
+
+    .PARAMETER MaxSubmitCount
+
+    .FUNCTIONALITY
+        WebInspect
+    #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable],[String])]
     param
     (
-        [Parameter]
+        [Parameter()]
         [validateset($True, $False)]
         [switch]$Enable,
 
-        [Parameter]
+        [Parameter()]
         [string]$Name,
 
-        [Parameter]
+        [Parameter()]
         [int]$MaxSubmitCount
     )
     begin

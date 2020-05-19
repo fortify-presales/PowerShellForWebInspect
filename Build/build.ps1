@@ -74,7 +74,7 @@ else {
                 ErrorAction = 'Stop'
             }
 
-            #Publish-Module @PM
+            Publish-Module @PM
             Write-Host "$PowerShellForWebInspect PowerShell Module version $newVersion published to the PowerShell Gallery." -ForegroundColor Cyan
         }
         Catch
