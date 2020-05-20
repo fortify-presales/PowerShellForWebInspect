@@ -1259,39 +1259,23 @@
       <command:verb>New</command:verb>
       <command:noun>WIClientCertificateObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new ClientCertificateObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.ClientCertificateObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIClientCertificateObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>StoreName</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill StoreName Description }}</maml:para>
+            <maml:para>The system store name where the certificate is located. The predefined systems stores are: MY, Root, Trust, CA.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>IsGlobal</maml:name>
-          <maml:Description>
-            <maml:para>{{ Fill IsGlobal Description }}</maml:para>
-          </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">True</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">False</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-          <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1299,11 +1283,11 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>SerialNumber</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill SerialNumber Description }}</maml:para>
+            <maml:para>The serial number that uniquely identifies the client certificate.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1311,77 +1295,79 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
           <maml:name>Bytes</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Bytes Description }}</maml:para>
+            <maml:para>If you want to embed the client certificate, use this field.  the raw client certificate bytes in base64 encoded format. If this field is set then the values of "IsGlobal", "StoreName" and "SerialNumber" are ignored. Caution! When using the "Bytes" option, the client certificate is embedded in the scan settings and may be visible to other users.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IsGlobal</maml:name>
+          <maml:Description>
+            <maml:para>If true, look for "StoreName" in the Local Machine machine hive. Otherwise look for "StoreName" in the Current User hive.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-        <maml:name>Bytes</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>StoreName</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Bytes Description }}</maml:para>
+          <maml:para>The system store name where the certificate is located. The predefined systems stores are: MY, Root, Trust, CA.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>IsGlobal</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill IsGlobal Description }}</maml:para>
+          <maml:para>If true, look for "StoreName" in the Local Machine machine hive. Otherwise look for "StoreName" in the Current User hive.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
+        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>SerialNumber</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill SerialNumber Description }}</maml:para>
+          <maml:para>The serial number that uniquely identifies the client certificate.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>StoreName</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>Bytes</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill StoreName Description }}</maml:para>
+          <maml:para>If you want to embed the client certificate, use this field.  the raw client certificate bytes in base64 encoded format. If this field is set then the values of "IsGlobal", "StoreName" and "SerialNumber" are ignored. Caution! When using the "Bytes" option, the client certificate is embedded in the scan settings and may be visible to other users.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -1427,33 +1413,28 @@
       <command:verb>New</command:verb>
       <command:noun>WIKnownTechnologyDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new KnownTechnologyDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.KnownTechnologyDescriptorObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIKnownTechnologyDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Framework</maml:name>
           <maml:Description>
             <maml:para>{{ Fill Framework Description }}</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">none</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">webSpherePortal</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">oracleADFFaces</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none">
           <maml:name>HostsInfo</maml:name>
           <maml:Description>
             <maml:para>{{ Fill HostsInfo Description }}</maml:para>
@@ -1468,19 +1449,19 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>Framework</maml:name>
         <maml:Description>
           <maml:para>{{ Fill Framework Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none">
         <maml:name>HostsInfo</maml:name>
         <maml:Description>
           <maml:para>{{ Fill HostsInfo Description }}</maml:para>
@@ -1493,16 +1474,7 @@
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>System.Object</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -1548,47 +1520,47 @@
       <command:verb>New</command:verb>
       <command:noun>WIMacroGenDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new MacroGenDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.MacroGenDescriptorObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIMacroGenDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Username</maml:name>
           <maml:Description>
             <maml:para>{{ Fill Username Description }}</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>Password</maml:name>
-          <maml:Description>
-            <maml:para>{{ Fill Password Description }}</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-          <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:Description>
+            <maml:para>{{ Fill Password Description }}</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
           <maml:name>StartUrl</maml:name>
           <maml:Description>
             <maml:para>{{ Fill StartUrl Description }}</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1597,52 +1569,43 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Password</maml:name>
+        <maml:name>Username</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Password Description }}</maml:para>
+          <maml:para>{{ Fill Username Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>StartUrl</maml:name>
+        <maml:name>Password</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill StartUrl Description }}</maml:para>
+          <maml:para>{{ Fill Password Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>Username</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>StartUrl</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Username Description }}</maml:para>
+          <maml:para>{{ Fill StartUrl Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -1688,19 +1651,19 @@
       <command:verb>New</command:verb>
       <command:noun>WIMacroParameterObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new MacroParameterObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.MacroParameterObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIMacroParameterObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Name</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Name Description }}</maml:para>
+            <maml:para>The name of the parameter.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -1709,10 +1672,10 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>Value</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Value Description }}</maml:para>
+            <maml:para>The value of of the parameter.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -1724,10 +1687,10 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>Name</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Name Description }}</maml:para>
+          <maml:para>The name of the parameter.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -1736,10 +1699,10 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>Value</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Value Description }}</maml:para>
+          <maml:para>The value of of the parameter.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -1749,16 +1712,7 @@
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -1784,10 +1738,10 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>$param1 = New-WIMacroParameterObject -Name "username" -Value "user"</dev:code>
         <dev:remarks>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para></maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -1804,19 +1758,19 @@
       <command:verb>New</command:verb>
       <command:noun>WIMacroParametersObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new MacroParametersObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.MacroParametersObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIMacroParametersObject</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>MacroName</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill MacroName Description }}</maml:para>
+            <maml:para>The name of the macro.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -1825,10 +1779,10 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none">
           <maml:name>MacroParameters</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill MacroParameters Description }}</maml:para>
+            <maml:para>The parameters and values that will be passed to the macro.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Hashtable[]</command:parameterValue>
           <dev:type>
@@ -1840,10 +1794,10 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>MacroName</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill MacroName Description }}</maml:para>
+          <maml:para>The name of the macro.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -1852,10 +1806,10 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none">
         <maml:name>MacroParameters</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill MacroParameters Description }}</maml:para>
+          <maml:para>The parameters and values that will be passed to the macro.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Hashtable[]</command:parameterValue>
         <dev:type>
@@ -1865,16 +1819,7 @@
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>System.Collections.Hashtable[]</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -1900,10 +1845,10 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>New-WIMacroParametersObject -MacroName tcLogin -MacroParameters $macroParams</dev:code>
         <dev:remarks>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para></maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -1920,123 +1865,107 @@
       <command:verb>New</command:verb>
       <command:noun>WIProxyConfigurationDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new ProxyConfigurationDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.ProxyConfigurationDescriptorObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIProxyConfigurationDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ProxyMode</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyMode Description }}</maml:para>
+            <maml:para>The mode of the proxy.</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">none</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">standard</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">socks4</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">socks5</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">pacUrl</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>ProxyServer</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyServer Description }}</maml:para>
+            <maml:para>The proxy server hostname or IP address.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
           <maml:name>ProxyPort</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyPort Description }}</maml:para>
+            <maml:para>The proxy server port number.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-          <maml:name>ProxyPacUrl</maml:name>
-          <maml:Description>
-            <maml:para>{{ Fill ProxyPacUrl Description }}</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-          <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
-          <maml:name>ProxyAuthType</maml:name>
+          <maml:name>ProxyPacUrl</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyAuthType Description }}</maml:para>
+            <maml:para>The proxy server autoconfiguration PAC file URL.</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">none</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">basic</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">ntlm</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">kerberos</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">digest</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">automatic</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">negotiate</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
-          <maml:name>ProxyAuthUsername</maml:name>
+          <maml:name>ProxyAuthType</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyAuthUsername Description }}</maml:para>
+            <maml:para>The proxy server authentication type.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
-          <maml:name>ProxyAuthPassword</maml:name>
+          <maml:name>ProxyAuthUsername</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyAuthPassword Description }}</maml:para>
+            <maml:para>The proxy authentication username.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
+          <maml:name>ProxyAuthPassword</maml:name>
+          <maml:Description>
+            <maml:para>The proxy authentication password.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
           <maml:name>ProxyBypass</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ProxyBypass Description }}</maml:para>
+            <maml:para>The bypass proxy semicolon separated list.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2044,113 +1973,104 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
-        <maml:name>ProxyAuthPassword</maml:name>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ProxyMode</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ProxyAuthPassword Description }}</maml:para>
+          <maml:para>The mode of the proxy.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
-        <maml:name>ProxyAuthType</maml:name>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>ProxyServer</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ProxyAuthType Description }}</maml:para>
+          <maml:para>The proxy server hostname or IP address.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>ProxyPort</maml:name>
+        <maml:Description>
+          <maml:para>The proxy server port number.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>ProxyPacUrl</maml:name>
+        <maml:Description>
+          <maml:para>The proxy server autoconfiguration PAC file URL.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+        <maml:name>ProxyAuthType</maml:name>
+        <maml:Description>
+          <maml:para>The proxy server authentication type.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
         <maml:name>ProxyAuthUsername</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ProxyAuthUsername Description }}</maml:para>
+          <maml:para>The proxy authentication username.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
+        <maml:name>ProxyAuthPassword</maml:name>
+        <maml:Description>
+          <maml:para>The proxy authentication password.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
         <maml:name>ProxyBypass</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ProxyBypass Description }}</maml:para>
+          <maml:para>The bypass proxy semicolon separated list.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>ProxyMode</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill ProxyMode Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-        <maml:name>ProxyPacUrl</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill ProxyPacUrl Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>ProxyPort</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill ProxyPort Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>ProxyServer</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill ProxyServer Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -2196,59 +2116,59 @@
       <command:verb>New</command:verb>
       <command:noun>WIRestEndPointDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new RestEndPointDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.RestEndPointDescriptorObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIRestEndPointDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Method</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Method Description }}</maml:para>
+            <maml:para>The REST endpoint method.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>Rule</maml:name>
-          <maml:Description>
-            <maml:para>{{ Fill Rule Description }}</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-          <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>Type</maml:name>
+          <maml:name>Rule</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Type Description }}</maml:para>
+            <maml:para>The REST endpoint rule.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+          <maml:name>Type</maml:name>
+          <maml:Description>
+            <maml:para>The REST endpoint type.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
           <maml:name>Payload</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Payload Description }}</maml:para>
+            <maml:para>The REST endpoint payload.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2256,65 +2176,56 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>Method</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Method Description }}</maml:para>
+          <maml:para>The REST endpoint method.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-        <maml:name>Payload</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill Payload Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Rule</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill Rule Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>Rule</maml:name>
+        <maml:Description>
+          <maml:para>The REST endpoint rule.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
         <maml:name>Type</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Type Description }}</maml:para>
+          <maml:para>The REST endpoint type.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>Payload</maml:name>
+        <maml:Description>
+          <maml:para>The REST endpoint payload.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -2360,23 +2271,23 @@
       <command:verb>New</command:verb>
       <command:noun>WIReuseFalsePositivesObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new ReuseFalsePositives object.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.ReuseFalsePositives for use in initiating a new scan. Allows you to specify an array of ScanIDs to import the false positives from scans (containing vulnerabilities) that were changed to false positives. If those false positives match vulnerabilities detected in this scan, the vulnerabilities will be changed to false positives.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIReuseFalsePositivesObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ScanIds</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ScanIds Description }}</maml:para>
+            <maml:para>Array of ScanIDS to import false positives from.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2384,29 +2295,20 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>ScanIds</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ScanIds Description }}</maml:para>
+          <maml:para>Array of ScanIDS to import false positives from.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String[]</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -2655,19 +2557,19 @@
       <command:verb>New</command:verb>
       <command:noun>WIScanReuseOptionsObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new ScanReuseOptionsObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.ScanReuseOptionsObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIScanReuseOptionsObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ScanId</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ScanId Description }}</maml:para>
+            <maml:para>A GUID representing an existing scan ID. The scan referenced by the "ReuseScan" parameter is used as a baseline.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -2676,16 +2578,11 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>Mode</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Mode Description }}</maml:para>
+            <maml:para>The "Mode" parameter determines the manner in which the baseline scan is reused.</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">incremental</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">remediation</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">reuseCrawl</command:parameterValue>
-          </command:parameterValueGroup>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -2697,9 +2594,9 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Mode</maml:name>
+        <maml:name>ScanId</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Mode Description }}</maml:para>
+          <maml:para>A GUID representing an existing scan ID. The scan referenced by the "ReuseScan" parameter is used as a baseline.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -2708,10 +2605,10 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>ScanId</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>Mode</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ScanId Description }}</maml:para>
+          <maml:para>The "Mode" parameter determines the manner in which the baseline scan is reused.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -2721,16 +2618,736 @@
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
         <dev:type>
-          <maml:name>None</maml:name>
+          <maml:name>System.Collections.Hashtable</maml:name>
         </dev:type>
         <maml:description>
           <maml:para></maml:para>
         </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+      </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <dev:remarks>
+          <maml:para>{{ Add example description here }}</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://localhost:8083/webinspect/swagger/ui/index#!/Scanner/Scanner_GetScanStatus</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-WIScanSettingsOverrideObject</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>WIScanSettingsOverrideObject</command:noun>
+      <maml:description>
+        <maml:para>Create a new ScanSettingsOverrideObject object.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Create a new PS4WI.ScanSettingsOverrideObject with any custom settings overrides for use in initiating a new scan.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-WIScanSettingsOverrideObject</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ScanName</maml:name>
+          <maml:Description>
+            <maml:para>Any alpha-numeric value, does not need to be unique. Required.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="10" aliases="none">
+          <maml:name>AuditThreads</maml:name>
+          <maml:Description>
+            <maml:para>A number between 1 and 50 indicating the number of threads that the auditor should use (default is 10). SharedThreads is not compatible with CrawlThreads and AuditThreads. If SharedThreads is set, CrawlThreads and AuditThreads will be ignored.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="11" aliases="none">
+          <maml:name>StartOption</maml:name>
+          <maml:Description>
+            <maml:para>The start option to use.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="12" aliases="none">
+          <maml:name>LoginMacroAutoGen</maml:name>
+          <maml:Description>
+            <maml:para>A MacroGenDescriptorObject which can be used to configure automatic login macro generation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="13" aliases="none">
+          <maml:name>LoginMacro</maml:name>
+          <maml:Description>
+            <maml:para>A webmacro file name. This file must exist in the WebInspect scan settings folder on the WebInspect machine.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="14" aliases="none">
+          <maml:name>MacroParameters</maml:name>
+          <maml:Description>
+            <maml:para>A MacroParametersObject which can be used to override parameters defined in TruClient macros. The macros must exist in the scan settings and the parameters must exist in the macro.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="15" aliases="none">
+          <maml:name>SmartCredentials</maml:name>
+          <maml:Description>
+            <maml:para>Override the smart credentials defined in a session-based macro. The macro must exist in the scan settings and smart credentials must be enabled in the macro.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="16" aliases="none">
+          <maml:name>Proxy</maml:name>
+          <maml:Description>
+            <maml:para>A ProxyConfigurationDescriptorObject to use which defines a proxy server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="17" aliases="none">
+          <maml:name>NetworkCredentials</maml:name>
+          <maml:Description>
+            <maml:para>Network authentication username and password. Use the NetworkAuthenticationMode setting to specify the authentication mode.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="18" aliases="none">
+          <maml:name>NetworkAuthenticationMode</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the network authentication mode when using NetworkCredentials, e..g. "myusername","mypassword"</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="19" aliases="none">
+          <maml:name>AllowedHosts</maml:name>
+          <maml:Description>
+            <maml:para>An array of allowed "host:port" entries. Hosts found in "StartUrls" are automatically added to the allowed hosts list. Use the special value "*" to add all hosts found in workflow macros, login macros and start urls to allowed hosts. Caution! This is a convenience feature, and it can cause the scanner to go out of scope. Examples: "zero.webappsecurity.com:80", "zero.webappsecurity.com:443", "myhost:8888" or "*"</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>StartUrls</maml:name>
+          <maml:Description>
+            <maml:para>A list of valid, fully qualified URLs, including scheme, host and port. This field is only used if "StartOption" is "Url".</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="20" aliases="none">
+          <maml:name>RestEndPoints</maml:name>
+          <maml:Description>
+            <maml:para>A RestEndpointDescriptorObject containing the REST end points to use.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Hashtable[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="21" aliases="none">
+          <maml:name>WebFormValues</maml:name>
+          <maml:Description>
+            <maml:para>The web form values to use.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="22" aliases="none">
+          <maml:name>PolicyId</maml:name>
+          <maml:Description>
+            <maml:para>An integer representing the policy id OR the GUID representing the policy unique id. Use "Get-WIPolicies" for a list of available policies.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="23" aliases="none">
+          <maml:name>CheckIds</maml:name>
+          <maml:Description>
+            <maml:para>An array of check IDs. A custom audit policy will be created from this list and used for the scan.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="24" aliases="none">
+          <maml:name>ScanScope</maml:name>
+          <maml:Description>
+            <maml:para>The scope of the scan.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="25" aliases="none">
+          <maml:name>ScopedPaths</maml:name>
+          <maml:Description>
+            <maml:para>Restrict the crawler to specific paths within a web site.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="26" aliases="none">
+          <maml:name>ClientCertificate</maml:name>
+          <maml:Description>
+            <maml:para>Either the location of the client certificate in the Windows certificate store OR the raw client certificate.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="3" aliases="none">
+          <maml:name>UserAgent</maml:name>
+          <maml:Description>
+            <maml:para>A UserAgentDescriptorObject which can be used to configure a predefined user agent or use a custom user agent string.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="4" aliases="none">
+          <maml:name>WebServiceScan</maml:name>
+          <maml:Description>
+            <maml:para>A WebServiceScanDescriptorObject which can be used to configure a SOAP Web Service Scan.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+          <maml:name>CrawlAuditMode</maml:name>
+          <maml:Description>
+            <maml:para>The crawl and/or audit mode to use.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+          <maml:name>CrawlCoverageMode</maml:name>
+          <maml:Description>
+            <maml:para>The crawl coverage mode to use.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="7" aliases="none">
+          <maml:name>KnownTechnology</maml:name>
+          <maml:Description>
+            <maml:para>A KnownTechnologyDescriptorObject to use.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
+          <maml:name>SharedThreads</maml:name>
+          <maml:Description>
+            <maml:para>A number between 1 and 75 indicating the number of shared threads that the crawler and auditor should use (default is 1, meaning a single threaded scan). SharedThreads is not compatible with CrawlThreads and AuditThreads. If SharedThreads is set, CrawlThreads and AuditThreads will be ignored.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="9" aliases="none">
+          <maml:name>CrawlThreads</maml:name>
+          <maml:Description>
+            <maml:para>A number between 1 and 25 indicating the number of threads that the crawler should use (default is 1). SharedThreads is not compatible with CrawlThreads and AuditThreads. If SharedThreads is set, CrawlThreads and AuditThreads will be ignored.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>DontStartScan</maml:name>
+          <maml:Description>
+            <maml:para>If this switch is set, the scan will be created but it will remain in the stopped state.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>EnableTrafficMonitor</maml:name>
+          <maml:Description>
+            <maml:para>If this switch is set, the traffic monitor will be enabled.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ScanName</maml:name>
+        <maml:Description>
+          <maml:para>Any alpha-numeric value, does not need to be unique. Required.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>StartUrls</maml:name>
+        <maml:Description>
+          <maml:para>A list of valid, fully qualified URLs, including scheme, host and port. This field is only used if "StartOption" is "Url".</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="3" aliases="none">
+        <maml:name>UserAgent</maml:name>
+        <maml:Description>
+          <maml:para>A UserAgentDescriptorObject which can be used to configure a predefined user agent or use a custom user agent string.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="4" aliases="none">
+        <maml:name>WebServiceScan</maml:name>
+        <maml:Description>
+          <maml:para>A WebServiceScanDescriptorObject which can be used to configure a SOAP Web Service Scan.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+        <maml:name>CrawlAuditMode</maml:name>
+        <maml:Description>
+          <maml:para>The crawl and/or audit mode to use.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+        <maml:name>CrawlCoverageMode</maml:name>
+        <maml:Description>
+          <maml:para>The crawl coverage mode to use.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="7" aliases="none">
+        <maml:name>KnownTechnology</maml:name>
+        <maml:Description>
+          <maml:para>A KnownTechnologyDescriptorObject to use.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
+        <maml:name>SharedThreads</maml:name>
+        <maml:Description>
+          <maml:para>A number between 1 and 75 indicating the number of shared threads that the crawler and auditor should use (default is 1, meaning a single threaded scan). SharedThreads is not compatible with CrawlThreads and AuditThreads. If SharedThreads is set, CrawlThreads and AuditThreads will be ignored.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="9" aliases="none">
+        <maml:name>CrawlThreads</maml:name>
+        <maml:Description>
+          <maml:para>A number between 1 and 25 indicating the number of threads that the crawler should use (default is 1). SharedThreads is not compatible with CrawlThreads and AuditThreads. If SharedThreads is set, CrawlThreads and AuditThreads will be ignored.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="10" aliases="none">
+        <maml:name>AuditThreads</maml:name>
+        <maml:Description>
+          <maml:para>A number between 1 and 50 indicating the number of threads that the auditor should use (default is 10). SharedThreads is not compatible with CrawlThreads and AuditThreads. If SharedThreads is set, CrawlThreads and AuditThreads will be ignored.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="11" aliases="none">
+        <maml:name>StartOption</maml:name>
+        <maml:Description>
+          <maml:para>The start option to use.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="12" aliases="none">
+        <maml:name>LoginMacroAutoGen</maml:name>
+        <maml:Description>
+          <maml:para>A MacroGenDescriptorObject which can be used to configure automatic login macro generation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="13" aliases="none">
+        <maml:name>LoginMacro</maml:name>
+        <maml:Description>
+          <maml:para>A webmacro file name. This file must exist in the WebInspect scan settings folder on the WebInspect machine.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="14" aliases="none">
+        <maml:name>MacroParameters</maml:name>
+        <maml:Description>
+          <maml:para>A MacroParametersObject which can be used to override parameters defined in TruClient macros. The macros must exist in the scan settings and the parameters must exist in the macro.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="15" aliases="none">
+        <maml:name>SmartCredentials</maml:name>
+        <maml:Description>
+          <maml:para>Override the smart credentials defined in a session-based macro. The macro must exist in the scan settings and smart credentials must be enabled in the macro.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="16" aliases="none">
+        <maml:name>Proxy</maml:name>
+        <maml:Description>
+          <maml:para>A ProxyConfigurationDescriptorObject to use which defines a proxy server.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="17" aliases="none">
+        <maml:name>NetworkCredentials</maml:name>
+        <maml:Description>
+          <maml:para>Network authentication username and password. Use the NetworkAuthenticationMode setting to specify the authentication mode.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="18" aliases="none">
+        <maml:name>NetworkAuthenticationMode</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the network authentication mode when using NetworkCredentials, e..g. "myusername","mypassword"</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="19" aliases="none">
+        <maml:name>AllowedHosts</maml:name>
+        <maml:Description>
+          <maml:para>An array of allowed "host:port" entries. Hosts found in "StartUrls" are automatically added to the allowed hosts list. Use the special value "*" to add all hosts found in workflow macros, login macros and start urls to allowed hosts. Caution! This is a convenience feature, and it can cause the scanner to go out of scope. Examples: "zero.webappsecurity.com:80", "zero.webappsecurity.com:443", "myhost:8888" or "*"</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="20" aliases="none">
+        <maml:name>RestEndPoints</maml:name>
+        <maml:Description>
+          <maml:para>A RestEndpointDescriptorObject containing the REST end points to use.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Hashtable[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Hashtable[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="21" aliases="none">
+        <maml:name>WebFormValues</maml:name>
+        <maml:Description>
+          <maml:para>The web form values to use.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="22" aliases="none">
+        <maml:name>PolicyId</maml:name>
+        <maml:Description>
+          <maml:para>An integer representing the policy id OR the GUID representing the policy unique id. Use "Get-WIPolicies" for a list of available policies.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="23" aliases="none">
+        <maml:name>CheckIds</maml:name>
+        <maml:Description>
+          <maml:para>An array of check IDs. A custom audit policy will be created from this list and used for the scan.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>DontStartScan</maml:name>
+        <maml:Description>
+          <maml:para>If this switch is set, the scan will be created but it will remain in the stopped state.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="24" aliases="none">
+        <maml:name>ScanScope</maml:name>
+        <maml:Description>
+          <maml:para>The scope of the scan.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="25" aliases="none">
+        <maml:name>ScopedPaths</maml:name>
+        <maml:Description>
+          <maml:para>Restrict the crawler to specific paths within a web site.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="26" aliases="none">
+        <maml:name>ClientCertificate</maml:name>
+        <maml:Description>
+          <maml:para>Either the location of the client certificate in the Windows certificate store OR the raw client certificate.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>EnableTrafficMonitor</maml:name>
+        <maml:Description>
+          <maml:para>If this switch is set, the traffic monitor will be enabled.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -2776,35 +3393,35 @@
       <command:verb>New</command:verb>
       <command:noun>WIServerTechnologyDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new ServerTechnologyDescriptor object.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.ServerTechnologyDescriptor for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIServerTechnologyDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Url</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Url Description }}</maml:para>
+            <maml:para>The Url of the server.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>ServerTypeIds</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ServerTypeIds Description }}</maml:para>
+            <maml:para>List of server type ids.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32[]</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>Int32[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2813,40 +3430,31 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>ServerTypeIds</maml:name>
+        <maml:name>Url</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ServerTypeIds Description }}</maml:para>
+          <maml:para>The Url of the server.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>Url</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>ServerTypeIds</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Url Description }}</maml:para>
+          <maml:para>List of server type ids.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Int32[]</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>Int32[]</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -2892,19 +3500,19 @@
       <command:verb>New</command:verb>
       <command:noun>WIStartScanDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new StartScanDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.StartScanDescriptorObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIStartScanDescriptorObject</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>SettingsName</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill SettingsName Description }}</maml:para>
+            <maml:para>The name of a settings file that exists in the WebInspect scan settings folder. Optional overrides (set via "ScanOverrides") provide a way to make changes to certain fields in the referenced scan settings file.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -2913,34 +3521,22 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>NewSettingsName</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill NewSettingsName Description }}</maml:para>
+            <maml:para>The new settings name to create.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none">
-          <maml:name>ScanOverrides</maml:name>
-          <maml:Description>
-            <maml:para>{{ Fill ScanOverrides Description }}</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
-          <dev:type>
-            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="3" aliases="none">
-          <maml:name>ReuseScan</maml:name>
+          <maml:name>ScanOverrides</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ReuseScan Description }}</maml:para>
+            <maml:para>A ScanSettingsOverridesObject containing the settings of the scan.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
@@ -2950,9 +3546,21 @@
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="4" aliases="none">
+          <maml:name>ReuseScan</maml:name>
+          <maml:Description>
+            <maml:para>A ScanReuseOptionsObject containing a Scan ID to reuse.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="5" aliases="none">
           <maml:name>ReuseFP</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill ReuseFP Description }}</maml:para>
+            <maml:para>A ReuseFalsePositivesObject containing Scan IDs to import false positives from.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
@@ -2964,10 +3572,10 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>NewSettingsName</maml:name>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>SettingsName</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill NewSettingsName Description }}</maml:para>
+          <maml:para>The name of a settings file that exists in the WebInspect scan settings folder. Optional overrides (set via "ScanOverrides") provide a way to make changes to certain fields in the referenced scan settings file.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -2976,34 +3584,22 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="4" aliases="none">
-        <maml:name>ReuseFP</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>NewSettingsName</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ReuseFP Description }}</maml:para>
+          <maml:para>The new settings name to create.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>Object</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="3" aliases="none">
-        <maml:name>ReuseScan</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill ReuseScan Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
-        <dev:type>
-          <maml:name>Object</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none">
         <maml:name>ScanOverrides</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill ScanOverrides Description }}</maml:para>
+          <maml:para>A ScanSettingsOverridesObject containing the settings of the scan.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
@@ -3012,29 +3608,32 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>SettingsName</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="4" aliases="none">
+        <maml:name>ReuseScan</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill SettingsName Description }}</maml:para>
+          <maml:para>A ScanReuseOptionsObject containing a Scan ID to reuse.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="5" aliases="none">
+        <maml:name>ReuseFP</maml:name>
+        <maml:Description>
+          <maml:para>A ReuseFalsePositivesObject containing Scan IDs to import false positives from.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>System.Object</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -3080,46 +3679,35 @@
       <command:verb>New</command:verb>
       <command:noun>WIUserAgentDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new UserAgentDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.UserAgentDescriptorObject for use in initiating a new scan. Allows you to configure predefined user agent or use custom user agent string</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIUserAgentDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Standard</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Standard Description }}</maml:para>
+            <maml:para>Standard option to use: firefox, internetexplorer, chrome, iphone, ipad, android, windowsphone, windowsrt, none.</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">firefox</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">internetexplorer</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">chrome</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">iphone</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">ipad</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">android</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">windowsphone</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">windowsrt</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">none</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>Custom</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill Custom Description }}</maml:para>
+            <maml:para>Custom user agent string. If you would like to use custom user agent string then standard should be set to "none".</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3128,40 +3716,31 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Custom</maml:name>
+        <maml:name>Standard</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Custom Description }}</maml:para>
+          <maml:para>Standard option to use: firefox, internetexplorer, chrome, iphone, ipad, android, windowsphone, windowsrt, none.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>Standard</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>Custom</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill Standard Description }}</maml:para>
+          <maml:para>Custom user agent string. If you would like to use custom user agent string then standard should be set to "none".</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -3207,39 +3786,23 @@
       <command:verb>New</command:verb>
       <command:noun>WIWebFormValuesDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new WebFormValuesDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.WebFormValuesDescriptorObject for use in initiating a new scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIWebFormValuesDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-          <maml:name>Enable</maml:name>
-          <maml:Description>
-            <maml:para>{{ Fill Enable Description }}</maml:para>
-          </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">True</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">False</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-          <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Name</maml:name>
           <maml:Description>
             <maml:para>{{ Fill Name Description }}</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3249,24 +3812,47 @@
           <maml:Description>
             <maml:para>{{ Fill MaxSubmitCount Description }}</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Enable</maml:name>
+          <maml:Description>
+            <maml:para>{{ Fill Enable Description }}</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Enable</maml:name>
         <maml:Description>
           <maml:para>{{ Fill Enable Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:Description>
+          <maml:para>{{ Fill Name Description }}</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3276,36 +3862,15 @@
         <maml:Description>
           <maml:para>{{ Fill MaxSubmitCount Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Name</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill Name Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
     </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
@@ -3351,109 +3916,90 @@
       <command:verb>New</command:verb>
       <command:noun>WIWebServiceScanDescriptorObject</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Create a new WebServiceScanDescriptorObject.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Create a new PS4WI.WebServiceScanDescriptorObject for use in initiating a new scan. Allows to configure SOAP Web Service Scan.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>New-WIWebServiceScanDescriptorObject</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>WsdName</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill WsdName Description }}</maml:para>
+            <maml:para>Webservice Test Design File name.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>InheritWsdProxy</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill InheritWsdProxy Description }}</maml:para>
+            <maml:para>Use Webservice Test Design File proxy settings</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">True</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">False</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>False</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>InheritWsdAuth</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill InheritWsdAuth Description }}</maml:para>
+            <maml:para>Ue Webservice Test Design File network authentication settings</maml:para>
           </maml:Description>
-          <command:parameterValueGroup>
-            <command:parameterValue required="false" command:variableLength="false">True</command:parameterValue>
-            <command:parameterValue required="false" command:variableLength="false">False</command:parameterValue>
-          </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
           <dev:type>
-            <maml:name>ParameterAttribute</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>False</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>InheritWsdAuth</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill InheritWsdAuth Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>InheritWsdProxy</maml:name>
-        <maml:Description>
-          <maml:para>{{ Fill InheritWsdProxy Description }}</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
-        <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
         <maml:name>WsdName</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill WsdName Description }}</maml:para>
+          <maml:para>Webservice Test Design File name.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">ParameterAttribute</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>ParameterAttribute</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-    </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>InheritWsdProxy</maml:name>
+        <maml:Description>
+          <maml:para>Use Webservice Test Design File proxy settings</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>None</maml:name>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>InheritWsdAuth</maml:name>
+        <maml:Description>
+          <maml:para>Ue Webservice Test Design File network authentication settings</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
     <command:returnValues>
       <command:returnValue>
         <dev:type>
