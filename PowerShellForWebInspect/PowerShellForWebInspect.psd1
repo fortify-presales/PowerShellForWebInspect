@@ -12,7 +12,7 @@
 RootModule = 'PowerShellForWebInspect.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0.1'
+ModuleVersion = '1.0.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,8 +75,8 @@ FunctionsToExport = @(
     'New-WIRestEndPointDescriptorObject', 'New-WIReuseFalsePositivesObject', 'New-WIScanReuseOptionsObject', 'New-WIScanSettingsOverrideObject',
     'New-WIServerTechnologyDescriptorObject', 'New-WIStartScanDescriptorObject', 'New-WIUserAgentDescriptorObject', 'New-WIScanReuseOptionsObject',
     'New-WIWebFormValuesDescriptorObject', 'New-WIWebServiceScanDescriptorObject', 'New-WIMacroParameterObject', 'New-WIMacroParametersObject',
-    'Get-WIScans', 'Get-WIScanStatus', 'New-WIScan', 'Stop-WIScan', 'Start-WIScan', 'Remove-WIScan',
-    'Get-WIPolicies', 'Get-WIChecks', "Get-WIPolicyDetails", 'Get-WIScanLog'
+    'Get-WIScans', 'Get-WIScanStatus', 'New-WIScan', 'Stop-WIScan', 'Start-WIScan', 'Remove-WIScan', 'Get-WIReports',
+    'Get-WIPolicies', 'Get-WIChecks', "Get-WIPolicyDetails", 'Get-WIScanLog', 'Export-WIScan', 'Export-WIScanDetails', 'Export-WIScanReport'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
@@ -115,7 +115,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Initial release.'
+        ReleaseNotes = 'Added export of scan as FPR and XML.'
 
         # Prerelease string of this module
         # Prerelease = ''

@@ -7,7 +7,14 @@
 *   [Scans](#scans)
     * [Retrieving Scans](#retrieving-scans)
     * [Retrieving Scan Status](#retrieving-scan-status)
-    * [Starting a Dynamic Scan](#starting-a-dynamic-scan)
+    * [Retrieving Scan Log](#retrieving-scan-log)
+    * [Starting a Scan](#starting-a-scan)
+    * [Exporting a scan as FPR](#exporting-a-scan-as-fpr)
+    * [Exporting scan details as XML](#exporting-scan-details-as-xml)
+*   [Policies and Checks](#policies-and-checks)
+    * [Retrieving Policies](#retrieving-policies)
+    * [Retrieving Policy Details](#retrieving-policy-details)
+    * [Retrieving Checks](#retrieving-checks)    
 *   [Troubleshooting](#troubleshooting)    
 
 ----------
@@ -19,7 +26,7 @@ have installed WebInspect as per the [documentation](https://www.microfocus.com/
 started the Windows **WebInspect API Service** either automatically or using the **Micro Focus Fortify Monitor Tool**. 
 Using the Monitor tool you can configure the Authentication method to use:
 
-![Fortify Monitor](../Media/fortify-monitor.png)
+![Fortify Monitor](Media\fortify-monitor.png)
 
 Assuming you have configured **Basic** Authentication, then you can configure this module using the following:
 
@@ -54,13 +61,135 @@ in commands and sub-commands.
 
 ### Retrieving Scans
 
+You can retrieve scans using `Get-WIScans`. For example, to get all of the scans with status 'Complete' and name 'test' you could
+use the following:
+
+```Powershell
+Get-WIScans -Status "complete" -Name 'test'
+```
+
 ### Retrieving Scan Status
 
-### Starting a Dynamic Scan
+You can retrieve the status of an individual scan using `Get-WIScanStatus`. For example, to get the status of the scan 
+with id "1cec4067-cb67-42ed-8f00-e5220b5afc04" you could use the following:
 
-...
+```PowerShell
+Get-WIScanStatus -ScanId "1cec4067-cb67-42ed-8f00-e5220b5afc04"
+```
+         
+### Retrieving Scan Log
+
+You can retrieve the log of an individual scan using `Get-WIScanLog`. For example, to get the log of the scan with 
+id "1cec4067-cb67-42ed-8f00-e5220b5afc04" and display the result int a grid you could use the following:
+
+```PowerShell
+Get-WIScanLog -ScanId "1cec4067-cb67-42ed-8f00-e5220b5afc04" | Out-GridView
+```
+                                                                                                                                                                                            
+### Starting a New Scan
+
+You can start a new scan using `New-WIScan`; however as there are many options for different types of scans you need
+to create new "DescriptorObject's" first with details of the scan. For the most basic scan with "Default" settings you 
+could create a `StartScanDescriptorObject` and scan as follows:
+
+```PowerShell
+$startScanDescriptor = New-WIStartScanDescriptorObject -SettingsName "Default"
+New-WIScan -StartScanDescriptor $startScanDescriptor
+```
+
+For a more complex scan you need to create a `ScanSettingsOverrideObject`. For example, to create a scan of the URL
+"http://localhost:8443/mywebapp" you could use the following:
+
+```PowerShell
+$scanSettingsOverrides = New-WIScanSettingsOverrideObject -ScanName "My Scan Name" `
+    -StartUrls "http://localhost:8443/mywebapp"
+$startScanDescriptor = New-WIStartScanDescriptorObject -SettingsName "Default"
+New-WIScan -StartScanDescriptor $startScanDescriptor
+```
+
+Finally, for a scan that uses a login macro called "tcLogin" with macro parameters and a specific Scan policy you could
+use the following:
+
+```PowerShell
+$macroParams = @(
+    New-WIMacroParameterObject -Name "startURL" -Value "http://localhost:8443/mywebapp"
+    New-WIMacroParameterObject -Name "username" -Value "user"
+    New-WIMacroParameterObject -Name "password" -Value "password"
+)
+$loginMacroParam = New-WIMacroParametersObject -MacroName swaLogin -MacroParameters $macroParamstc
+$scanSettingsOverrides = New-WIScanSettingsOverrideObject -ScanName "My Scan Name" `
+    -StartUrls "https://localhost:8443/mywebapp" `
+    -LoginMacro "tcLogin" -MacroParameters $loginMacroParam `
+    -PolicyId 1008 # 1008 is "Critical and High" policy
+$startScanDescriptor = New-WIStartScanDescriptorObject -SettingsName "Default"
+New-WIScan -StartScanDescriptor $startScanDescriptor
+```
+
+### Stopping a Scan
+
+You can stop a running scan using `Stop-WIScan` as the following:
+
+```Powershell
+Stop-WIScan -ScanId "1cec4067-cb67-42ed-8f00-e5220b5afc04"
+```
+
+### Starting Scan 
+
+You can start a stopped scan using `Start-WIScan` as the following:
+
+```Powershell
+Start-WIScan -ScanId "1cec4067-cb67-42ed-8f00-e5220b5afc04"
+```
+
+### Exporting a scan as FPR
+
+You can export a "Completed" scan's results as a Fortify Project Results (FPR) file using `Export-WIScan` as in the 
+following:
+
+```PowerShell
+Export-WIScanReport -ScanId ff860346-2978-4f14-bae3-004ff0a535c2 -ReportFormat fpr -OutFile test.fpr
+```
+
+### Exporting scan details as XML
+
+You can export a "Completed" scan's detailed results as an XML file using `Export-WIScanDetails` as in the 
+following:
+
+```PowerShell
+Export-WIScanDetails -ScanId ff860346-2978-4f14-bae3-004ff0a535c2 -OutFile test.xml -DetailType Vulnerabilities -Format xml
+```
 
 ----------
+
+## Policies and Checks
+
+### Retrieving Policies
+
+You can retrieve all of the Scan policies using `Get-WIPolicies` as in the following:
+
+```PowerShell
+Get-WIPolicies | Out-GridView
+```
+
+### Retrieving Policy Details
+
+You can retrieve the detail of a specific Scan policy using `Get-WIPolicyDetails` as in the following which retrieves
+all of the "checks" associated with a policy:
+
+```PowerShell
+Get-WIPolicyDetails -PolicyId 7235cf62-ee1a-4045-88f8-898c1735856f | `
+            Select-Object -ExpandProperty checks | Out-GridView
+```
+
+### Retrieving Checks
+
+You can retrieve details of an individual Check using `Get-WIChecks` as in the following:
+
+```PowerShell
+Get-WIChecks | Out-GridView
+```
+
+----------  
 
 ## Troubleshooting
 

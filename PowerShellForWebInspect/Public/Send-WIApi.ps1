@@ -15,6 +15,8 @@ function Send-WIApi {
         Hash table of arguments to send to the WebInspect API.
     .PARAMETER BodyFile
         A File containing the Body to be sent to the WebInspect API.
+    .PARAMETER OutFile
+        The full path to a file to write the output to.
     .PARAMETER ContentType
         Content Type to send, if not specified defaults to "application/json".
     .PARAMETER ApiUri
@@ -58,6 +60,9 @@ function Send-WIApi {
 
         [Parameter(Mandatory=$false)]
         [string]$BodyFile,
+
+        [Parameter(Mandatory=$false)]
+        [string]$OutFile,
 
         [Parameter(Mandatory=$false)]
         [string]$ContentType = 'application/json',
@@ -125,6 +130,10 @@ function Send-WIApi {
             $Params.Add('Method', $Method)
             $Params.Add('ContentType', 'application/json')
             $Params.add('Body', (ConvertTo-Json -Depth 5 $Body))
+        }
+        if ($OutFile) {
+            Write-Verbose "OutFile is $OutFile"
+            $Params.Add('OutFile', $OutFile)
         }
         if ($Proxy) {
             $Params['Proxy'] = $Proxy

@@ -8,6 +8,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.0.0.2] - 2020-05-20
+
+### Added
+
+- Added Export-WIScan to export a scan in FPR format
+- Added Export-WIScanDetails to export scan details in XML format
+- Added Get-WIReports to retrieve all available reports
+
+### Changed
+
+- Send-WIApi - updated to saves output to a file
+- Get-WIScanLog - removed superfluous parameter
+- USAGE.md - updated documentation
+
+### Removed
+
+- None
+
 ## [1.0.0.1] - 2020-05-19
 
 ### Added

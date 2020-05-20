@@ -1,9 +1,15 @@
-function Get-WIChecks {
+function Export-WIScan {
     <#
     .SYNOPSIS
-        Gets WebInspect SecureBase Checks.
+        Exports a scan.
     .DESCRIPTION
-        Get a list of all the available security checks in the WebInspect database.
+        Exports a scan in Fortify Project Results (FPR) format.
+    .PARAMETER ScanId
+        The id of the scan to export.
+        Required.
+    .PARAMETER OutFile
+        The name of the file to export the scan to.
+        Required.
     .PARAMETER ApiUri
         WebInspect API Uri to use, e.g. http://localhost:8083.
         If empty, the value from PS4WI will be used.
@@ -19,15 +25,24 @@ function Get-WIChecks {
         Force verbose output.
         Default value is the value set by Set-WIConfig
     .EXAMPLE
-        # Get all Checks
-        Get-WIChecks | Out-GridView
+        # Export a scan for scan id "ff860346-2978-4f14-bae3-004ff0a535c2" in FPR format to file "test.fpr"
+        Export-WIScanReport -ScanId ff860346-2978-4f14-bae3-004ff0a535c2 -ReportFormat fpr -OutFile test.fpr
     .LINK
-        http://localhost:8083/webinspect/swagger/ui/index#!/SecureBase/SecureBase_GetAllChecks
+        http://localhost:8083/webinspect/swagger/ui/index#!/Scanner/Scanner_GenerateReport
     .FUNCTIONALITY
         WebInspect
     #>
     [CmdletBinding()]
     param (
+        [Parameter(Mandatory)]
+        [string]$ScanId,
+
+        [Parameter(Mandatory)]
+        [string]$OutFile,
+
+        [Parameter()]
+        [switch]$IsCustom,
+
         [Parameter()]
         [ValidateNotNullOrEmpty()]
         [string]$ApiUri = $Script:PS4WI.ApiUri,
@@ -59,12 +74,18 @@ function Get-WIChecks {
             $Params.Add('ForceVerbose', $True)
             $VerbosePreference = "Continue"
         }
-        Write-Verbose "Get-WIChecks Bound Parameters: $( $PSBoundParameters | Remove-SensitiveData | Out-String )"
+        Write-Verbose "Export-WIScan Bound Parameters: $( $PSBoundParameters | Remove-SensitiveData | Out-String )"
+        $Body = @{}
+        $Format = "fpr"
+        if ($Body.Count -gt 0) {
+            $Params.Add('Body', $Body)
+        }
+        $Params.Add('OutFile', $OutFile)
     }
     process
     {
-        Write-Verbose "Send-WIApi -Method Get -Operation '/securebase/check'" #$Params
-        $Response = Send-WIApi -Method Get -Operation "/securebase/check" @Params
+        Write-Verbose "Send-WIApi -Method Get -Operation '/scanner/scans/${ScanId}.${Format}'" #$Params
+        $Response = Send-WIApi -Method Get -Operation "/scanner/scans/${ScanId}.${Format}" @Params
     }
     end {
         $Response

@@ -1,9 +1,9 @@
-function Get-WIChecks {
+function Get-WIReports {
     <#
     .SYNOPSIS
-        Gets WebInspect SecureBase Checks.
+        Gets WebInspect available Reports.
     .DESCRIPTION
-        Get a list of all the available security checks in the WebInspect database.
+        Get a list of all the available reports in the WebInspect database.
     .PARAMETER ApiUri
         WebInspect API Uri to use, e.g. http://localhost:8083.
         If empty, the value from PS4WI will be used.
@@ -19,10 +19,10 @@ function Get-WIChecks {
         Force verbose output.
         Default value is the value set by Set-WIConfig
     .EXAMPLE
-        # Get all Checks
-        Get-WIChecks | Out-GridView
+        # Get all reports
+        Get-WIReports | Out-GridView
     .LINK
-        http://localhost:8083/webinspect/swagger/ui/index#!/SecureBase/SecureBase_GetAllChecks
+        http://localhost:8083/webinspect/swagger/ui/index#!/Scanner/Scanner_GetAllAvailableReports
     .FUNCTIONALITY
         WebInspect
     #>
@@ -59,12 +59,12 @@ function Get-WIChecks {
             $Params.Add('ForceVerbose', $True)
             $VerbosePreference = "Continue"
         }
-        Write-Verbose "Get-WIChecks Bound Parameters: $( $PSBoundParameters | Remove-SensitiveData | Out-String )"
+        Write-Verbose "Get-WIReports Bound Parameters: $( $PSBoundParameters | Remove-SensitiveData | Out-String )"
     }
     process
     {
-        Write-Verbose "Send-WIApi -Method Get -Operation '/securebase/check'" #$Params
-        $Response = Send-WIApi -Method Get -Operation "/securebase/check" @Params
+        Write-Verbose "Send-WIApi -Method Get -Operation '/scanner/reports'" #$Params
+        $Response = Send-WIApi -Method Get -Operation "/scanner/reports" @Params
     }
     end {
         $Response

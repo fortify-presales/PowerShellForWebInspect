@@ -23,8 +23,9 @@ Describe "$TemplatePowerShellModule PowerShell Module Tests" {
     }
 }
 
-$pubFunctions = ('Get-WIConfig', 'Get-WIScans', 'Get-WIScanStatus', 'New-WIScan', 'Remove-WIScan',
-'Send-WIApi', 'Set-WIConfig', 'Start-WIScan', 'Stop-WIScan')
+$pubFunctions = ('Export-WIScan', 'Export-WIScanDetails', 'Get-WIChecks', 'Get-WIConfig', 'Get-WIPolicies',
+'Get-WIPolicyDetails', 'Get-WIReports', 'Get-WIScanLog', 'Get-WIScans', 'Get-WIScanStatus', 'New-WIScan',
+'Remove-WIScan', 'Send-WIApi', 'Set-WIConfig', 'Start-WIScan', 'Stop-WIScan')
 $privFunctions = ('AddObjectDetail')
 
 $folders = ( 'Public','Private')

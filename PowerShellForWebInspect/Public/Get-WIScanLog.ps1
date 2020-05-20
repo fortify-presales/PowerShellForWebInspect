@@ -34,9 +34,6 @@ function Get-WIScanLog {
         [string]$ScanId,
 
         [Parameter()]
-        [switch]$WaitForStatusChange,
-
-        [Parameter()]
         [ValidateNotNullOrEmpty()]
         [string]$ApiUri = $Script:PS4WI.ApiUri,
 
