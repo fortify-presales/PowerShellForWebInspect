@@ -18,6 +18,8 @@
 This is a [PowerShell](https://microsoft.com/powershell) [module](https://technet.microsoft.com/en-us/library/dd901839.aspx)
 that provides command-line interaction and automation for the [WebInspect API](http://localhost:8083/webinspect/swagger/ui/index).
 
+![Example](Media/example-render.gif) 
+
 ## Use Cases
 
 Although the module can be used generically, some use cases where it can be applied include:
